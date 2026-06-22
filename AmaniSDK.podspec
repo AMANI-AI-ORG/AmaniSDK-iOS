@@ -10,23 +10,24 @@ Pod::Spec.new do |s|
 
 
   s.name         = "AmaniSDK"
-  s.version      = "3.6.7"
+  s.version      = "3.6.8"
   s.summary      = "Amani-SDK"
   s.description  = "The Amani Software Development kit (SDK) provides you complete steps to perform eKYC."
   s.homepage     = "https://github.com/AmaniTechnologiesLtd/IOS_SDK_V2_Public"
   s.license      = "Copyright"
   s.author       = "Amani"
   s.platform     = :ios, "13.0"
-  s.static_framework = true
-  s.source       = { :http => 'file:' + __dir__ + '/Binaries/AmaniSDK.xcframework.zip' }
+  s.source       = { :path => "." }
+  s.source_files = "AmaniSDK/**/*.{h,m,swift,xib,mlpackage,mlmodel}"
+  s.resources    = "AmaniSDK/**/Assets/**/*.*"
   # s.dependency 'Alamofire', '>=5.2'
   # s.dependency 'SwiftLint'
   # s.dependency 'IQKeyboardManagerSwift'
   # s.dependency "lottie-ios"
-  s.dependency 'OpenSSL-Universal','1.1.2301'
+  # s.dependency 'OpenSSL-Universal'
   s.xcconfig          = { 'OTHER_LDFLAGS' => '-weak_framework CryptoKit -weak_framework CoreNFC -weak_framework CryptoTokenKit'}
   s.ios.deployment_target = '13.0'
-  s.vendored_frameworks = 'AmaniSDK.xcframework'
-
+  s.vendored_frameworks = 'AmaniSDK.xcframework', 'OpenSSL.xcframework'
+  
 
 end
